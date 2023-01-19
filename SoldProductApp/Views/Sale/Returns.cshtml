@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Return>
+@{
+}
+
+<h1>Orders</h1>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">RMACode</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Cargo Code</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.RMACode</td>
+                    <td>@item.ReturnDate</td>
+                    <td>@item.CargoCode</td>
+                    <td><a class="btn-dark" asp-controller="Sale" asp-action="GetRMADataByRMACode" asp-route-rmaCode="@item.RMACode">Get Order By RMA</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
